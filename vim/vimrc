@@ -3,8 +3,9 @@
 if ! has("gui_running")
     scriptencoding utf-8
     set encoding=utf-8
-    colo mod8
 endif
+
+colo mod8
 
 set nocompatible
 filetype off

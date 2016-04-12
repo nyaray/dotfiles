@@ -1,0 +1,204 @@
+" Preamble
+
+if ! has("gui_running")
+    scriptencoding utf-8
+    set encoding=utf-8
+    colo mod8
+endif
+
+set nocompatible
+filetype off
+
+" Follow the leader
+"let mapleader="\\"
+
+" Autocommands
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+
+set backup
+
+" Windahz stuff
+if has("win32")
+
+    cd $HOME
+    set directory=C:\\Users\\emilio.nyaray\\.vim\\swapfiles
+    set backupdir=C:\\Users\\emilio.nyaray\\.vim\\backupdir
+
+    set rtp+=~/vimfiles/bundle/Vundle.vim//
+    call vundle#begin('~/vimfiles/bundle')
+
+else
+    if has("unix")  " AWE YEEAAH
+        set directory=~/.vimfiles/swap
+        set backupdir=~/.vimfiles/backup
+
+        set rtp+=~/.vimfiles/bundle/Vundle.vim
+        call vundle#begin('~/.vimfiles/bundle')
+
+        let s:uname = system("uname")
+        if s:uname == "Darwin\n"
+            " os x
+        else
+            " not os x
+        endif
+    endif
+endif
+
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'tpope/vim-surround'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'ctrlpvim/ctrlp.vim'
+
+Plugin 'aklt/plantuml-syntax'
+
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+call vundle#end() " required after vundle, no more Plugin calls
+
+filetype plugin indent on
+
+" Vundle done
+"...
+
+" vim-surround
+"...
+
+" vim-easymotion
+"...
+
+" ctrlp
+"...
+
+" vim-airline
+let g:airline_theme='bubblegum'
+let g:airline#extensions#tabline#enabled=1
+
+set fileformats=unix,dos,mac
+
+" Visible stuff
+syntax on
+set number
+set list  " Print unprintables
+
+if has("gui_running")
+    set listchars=tab:\ ,trail:,extends:»,precedes:«  " mappings
+else
+    set listchars=tab:>-,trail:.
+endif
+
+set visualbell  " Bell, shut up!
+set showmatch  " Matching parens
+set colorcolumn=80  " 80 char line
+set textwidth=80  " Set wrap width etc
+set wrapmargin=2  " Wrap 2 chars before
+
+set autoread  " Ask to reload buffers as soon as changes are detected
+
+"           +--Disable hlsearch while loading viminfo
+"           | +--Remember marks for last 500 files
+"           | |    +--Remember up to 10000 lines in each register
+"           | |    |      +--Remember up to 1MB in each register
+"           | |    |      |     +--Remember last 1000 search patterns
+"           | |    |      |     |     +---Remember last 1000 commands
+"           | |    |      |     |     |
+"           v v    v      v     v     v
+set viminfo=h,'500,<10000,s1000,/1000,:1000
+
+set wildmode=list:longest,full  " List all matches, longest first
+set infercase  " Infer case for completions
+set noshowmode  " Don't print mode changes in the command prompt
+
+set title  " Set window title
+set titleold=
+set guifont=Consolas:h11
+
+" Strip the GUI
+set guioptions-=m  " menu bar
+set guioptions-=T  " toolbar
+set guioptions-=r  " right-hand scroll bar
+set guioptions-=L  " left-hand scroll bar
+
+" Editor behaviours
+set hidden  " allow editing multiple buffers
+
+" Editing behaviours
+set backspace=indent,eol,start  " make backspace eat all of these!
+set autoindent  " auto indent
+set smartindent  " indent on newline
+set expandtab  " spaces >>> tabs
+set smarttab
+set shiftround
+set tabstop=4  " tabs=4spaces
+set shiftwidth=4  " shift things by one tab
+set laststatus=2  " get the statusline to work
+
+" Search options
+set hlsearch
+set ignorecase
+set smartcase
+set incsearch
+set nowrapscan
+
+"nnoremap <Leader>n <SID>SearchMode()<CR>
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap g* g*zz
+nnoremap g# g#zz
+
+" search for visual selection
+nnoremap * /\<<C-R>=expand('<cword>')<CR>\><CR>zz
+nnoremap # ?\<<C-R>=expand('<cword>')<CR>\><CR>zz
+
+vnoremap // y/<C-R>"<CR>  " yank visual selection
+"nnoremap <Esc><Esc> :nohlsearch<CR>  " remove hilighting on double esc
+
+" If cursor is in first or last line of window, scroll to middle line.
+"function s:MaybeMiddle()
+"  if winline() == 1 || winline() == winheight(0)
+"    normal! zz
+"  endif
+"endfunction
+"
+"function s:SearchMode()
+"  if !exists('s:searchmode') || s:searchmode == 0
+"    echo 'Search next: scroll hit to middle if not on same page'
+"    nnoremap <silent> n n:call <SID>MaybeMiddle()<CR>
+"    nnoremap <silent> N N:call <SID>MaybeMiddle()<CR>
+"    let s:searchmode = 1
+"  elseif s:searchmode == 1
+"    echo 'Search next: scroll hit to middle'
+"    nnoremap n nzz
+"    nnoremap N Nzz
+"    let s:searchmode = 2
+"  else
+"    echo 'Search next: normal'
+"    nunmap n
+"    nunmap N
+"    let s:searchmode = 0
+"  endif
+"endfunction
+
+" vim-easymotion
+map <Leader>h <Plug>(easymotion-linebackward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>l <Plug>(easymotion-lineforward)
+
+let g:EasyMotion_startofline = 0  " don't change columns
+
+" Remaps
+nnoremap ; :
+nnoremap <S-Space> <PageUp>
+nnoremap <Space> <PageDown>
+
+vmap <BS> x
+vmap aa VGo1G
+
+" Shortcuts
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+

@@ -5,8 +5,6 @@ if ! has("gui_running")
     set encoding=utf-8
 endif
 
-colo mod8
-
 set nocompatible
 filetype off
 
@@ -47,12 +45,21 @@ endif
 
 Plugin 'VundleVim/Vundle.vim'
 
+" Editing, motions and file handling
+Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'ctrlpvim/ctrlp.vim'
 
+" Clojure
+Plugin 'guns/vim-clojure-static'
+Plugin 'tpope/vim-fireplace'
+Plugin 'guns/vim-clojure-highlight'
+
+" PlantUML
 Plugin 'aklt/plantuml-syntax'
 
+" Menu bar
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
@@ -60,17 +67,13 @@ call vundle#end() " required after vundle, no more Plugin calls
 
 filetype plugin indent on
 
-" Vundle done
-"...
+" rainbow_parentheses.vim, Clojure hax
+autocmd Syntax clojure EnableSyntaxExtension
 
-" vim-surround
-"...
-
-" vim-easymotion
-"...
-
-" ctrlp
-"...
+"autocmd VimEnter *       RainbowParenthesesToggle
+"autocmd Syntax   clojure RainbowParenthesesLoadRound
+"autocmd Syntax   clojure RainbowParenthesesLoadSquare
+"autocmd Syntax   clojure RainbowParenthesesLoadBraces
 
 " vim-airline
 let g:airline_theme='bubblegum'
@@ -78,8 +81,6 @@ let g:airline#extensions#tabline#enabled=1
 
 set fileformats=unix,dos,mac
 
-" Visible stuff
-syntax on
 set number
 set list  " Print unprintables
 
@@ -155,32 +156,6 @@ nnoremap # ?\<<C-R>=expand('<cword>')<CR>\><CR>zz
 vnoremap // y/<C-R>"<CR>  " yank visual selection
 "nnoremap <Esc><Esc> :nohlsearch<CR>  " remove hilighting on double esc
 
-" If cursor is in first or last line of window, scroll to middle line.
-"function s:MaybeMiddle()
-"  if winline() == 1 || winline() == winheight(0)
-"    normal! zz
-"  endif
-"endfunction
-"
-"function s:SearchMode()
-"  if !exists('s:searchmode') || s:searchmode == 0
-"    echo 'Search next: scroll hit to middle if not on same page'
-"    nnoremap <silent> n n:call <SID>MaybeMiddle()<CR>
-"    nnoremap <silent> N N:call <SID>MaybeMiddle()<CR>
-"    let s:searchmode = 1
-"  elseif s:searchmode == 1
-"    echo 'Search next: scroll hit to middle'
-"    nnoremap n nzz
-"    nnoremap N Nzz
-"    let s:searchmode = 2
-"  else
-"    echo 'Search next: normal'
-"    nunmap n
-"    nunmap N
-"    let s:searchmode = 0
-"  endif
-"endfunction
-
 " vim-easymotion
 map <Leader>h <Plug>(easymotion-linebackward)
 map <Leader>j <Plug>(easymotion-j)
@@ -202,4 +177,9 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+
+" Visible stuff
+set showcmd
+colorscheme mod8
+syntax enable
 

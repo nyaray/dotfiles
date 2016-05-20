@@ -48,7 +48,10 @@ Plugin 'VundleVim/Vundle.vim'
 " Editing, motions and file handling
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'tpope/vim-surround'
+Plugin 'junegunn/vim-easy-align'
+
 Plugin 'easymotion/vim-easymotion'
+
 Plugin 'ctrlpvim/ctrlp.vim'
 
 " Clojure
@@ -135,6 +138,10 @@ set shiftround
 set tabstop=4  " tabs=4spaces
 set shiftwidth=4  " shift things by one tab
 set laststatus=2  " get the statusline to work
+
+" EasyAlign, visual mode + motion/text objects
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " Search options
 set hlsearch

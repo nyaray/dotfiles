@@ -47,7 +47,7 @@ nl
 
 copy vim/vimrc ~/.vimrc
 copy vim/gvimrc ~/.gvimrc
-copy vim/colors ~/.vim/colors
+#copy vim/colors ~/.vim/colors
 copy vim/vimfiles $VIMFILES
 nl
 

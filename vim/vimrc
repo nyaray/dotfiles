@@ -54,6 +54,9 @@ Plugin 'easymotion/vim-easymotion'
 
 Plugin 'ctrlpvim/ctrlp.vim'
 
+" Elixir
+Plugin 'elixir-lang/vim-elixir'
+
 " Clojure
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-fireplace'
@@ -79,7 +82,8 @@ autocmd Syntax clojure EnableSyntaxExtension
 "autocmd Syntax   clojure RainbowParenthesesLoadBraces
 
 " vim-airline
-let g:airline_theme='bubblegum'
+"let g:airline_theme='bubblegum'
+let g:airline_theme='light'
 let g:airline#extensions#tabline#enabled=1
 
 set fileformats=unix,dos,mac

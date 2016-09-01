@@ -45,6 +45,8 @@ endif
 
 Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'chriskempson/vim-tomorrow-theme'
+
 " Editing, motions and file handling
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'tpope/vim-surround'
@@ -56,6 +58,9 @@ Plugin 'ctrlpvim/ctrlp.vim'
 
 " Elixir
 Plugin 'elixir-lang/vim-elixir'
+
+" Erlang
+Plugin 'vim-erlang/vim-erlang-runtime'
 
 " Clojure
 Plugin 'guns/vim-clojure-static'
@@ -93,6 +98,8 @@ set list  " Print unprintables
 
 if has("gui_running")
     set listchars=tab:\ ,trail:,extends:»,precedes:«  " mappings
+    set t_Co=256
+    set mouse=a
 else
     set listchars=tab:>-,trail:.
 endif
@@ -191,6 +198,7 @@ map <C-l> <C-W>l
 
 " Visible stuff
 set showcmd
-colorscheme mod8
 syntax enable
+"colorscheme mod8
+colorscheme Tomorrow-Night-Eighties
 

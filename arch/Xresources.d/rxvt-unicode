@@ -1,0 +1,16 @@
+! Visual bell
+URxvt*visualBell: true
+
+! Scrollbar
+URxvt*scrollBar: false
+
+! Scrollback
+URxvt*scrollTtyOutput: false
+URxvt*scrollWithBuffer: true
+URxvt*scrollTtyKeypress: true
+
+! Letter space
+!URxvt.letterSpace: -3
+
+! Font
+URxvt*font: xft:Inconsolata:size=12

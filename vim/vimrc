@@ -199,6 +199,6 @@ map <C-l> <C-W>l
 " Visible stuff
 set showcmd
 syntax enable
-"colorscheme mod8
+let &t_Co=256
 colorscheme Tomorrow-Night-Eighties
 

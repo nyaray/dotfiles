@@ -32,10 +32,13 @@ notify "DOTFILES DEPLOYMENT" "STARTING"
 
 step_begin "vim"
 
+notify_sub "directories" "Creating ..."
 ensure_dir ~/.vim
 ensure_dir $VIMFILES
 ensure_dir $VIMSWAP
 ensure_dir $VIMBACKUP
+nl
+notify_sub "directories" "Done!"
 nl
 
 notify_sub "vundle" "Cleaning ..."

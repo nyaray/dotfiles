@@ -10,6 +10,12 @@ echo "Copying .gitconfig"
 cp gitconfig ~/.gitconfig
 echo
 
+echo "Creating .notion"
+mkdir ~/.notion
+echo "Copying cfg_notion.lua"
+cp notion.d/cfg_notion.lua ~/.notion/
+echo
+
 echo "Creating .ssh"
 mkdir ~/.ssh
 echo

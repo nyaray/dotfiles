@@ -17,17 +17,17 @@ cp notion.d/cfg_notion.lua ~/.notion/
 echo
 
 echo "Creating .ssh"
-mkdir ~/.ssh
+mkdir -p ~/.ssh
 echo
 
 echo "Copying .Xresources"
 cp Xresources ~/.Xresources
 echo "Copying .Xresources.d"
-cp Xresources.d ~/.Xresources.d
+cp -r Xresources.d ~/.Xresources.d
 echo
 
 echo "Creating .zsh"
-mkdir ~/.zsh
+mkdir -p ~/.zsh
 echo "Copying .zshrc"
 cp zshrc ~/.zshrc
 echo

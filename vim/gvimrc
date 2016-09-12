@@ -1,2 +1,14 @@
-let &t_Co=256
+" GUI
+set guifont=Inconsolata\ 12
+set guioptions-=m  " menu bar
+set guioptions-=T  " toolbar
+set guioptions-=r  " right-hand scroll bar
+set guioptions-=L  " left-hand scroll bar
+
+" Fancy listchars
+"set listchars=tab:\ ,trail:,extends:»,precedes:«  " mappings
+
+" Lazy paging
+nnoremap <S-Space> <PageUp>
+nnoremap <Space> <PageDown>
 

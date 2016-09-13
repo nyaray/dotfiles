@@ -23,7 +23,7 @@ echo
 echo "Copying .Xresources"
 cp Xresources ~/.Xresources
 echo "Copying .Xresources.d"
-cp -r Xresources.d ~/.Xresources.d
+cp -r Xresources.d/* ~/.Xresources.d/
 echo
 
 echo "Creating .zsh"

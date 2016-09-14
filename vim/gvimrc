@@ -1,5 +1,5 @@
 " GUI
-set guifont=Inconsolata\ 12
+set guifont=Inconsolata\ for\ Powerline:h14
 set guioptions-=m  " menu bar
 set guioptions-=T  " toolbar
 set guioptions-=r  " right-hand scroll bar

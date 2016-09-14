@@ -16,8 +16,20 @@ autocmd BufNewFile,BufRead *.md set filetype=markdown
 
 set backup
 
-" Windahz stuff
-if has("win32")
+if has("unix")  " AWE YEEAAH
+    set directory=~/.vimfiles/swap
+    set backupdir=~/.vimfiles/backup
+
+    set rtp+=~/.vimfiles/bundle/Vundle.vim
+    call vundle#begin('~/.vimfiles/bundle')
+
+    let s:uname = system("uname")
+    if s:uname == "Darwin\n"
+        " os x
+    elseif s:uname == "Linux\n"
+        " not os x
+    endif
+elseif has("win32")  " Windahz stuff
 
     cd $HOME
     set directory=C:\\Users\\emilio.nyaray\\.vim\\swapfiles
@@ -25,22 +37,7 @@ if has("win32")
 
     set rtp+=~/vimfiles/bundle/Vundle.vim//
     call vundle#begin('~/vimfiles/bundle')
-
 else
-    if has("unix")  " AWE YEEAAH
-        set directory=~/.vimfiles/swap
-        set backupdir=~/.vimfiles/backup
-
-        set rtp+=~/.vimfiles/bundle/Vundle.vim
-        call vundle#begin('~/.vimfiles/bundle')
-
-        let s:uname = system("uname")
-        if s:uname == "Darwin\n"
-            " os x
-        else
-            " not os x
-        endif
-    endif
 endif
 
 Plugin 'VundleVim/Vundle.vim'
@@ -96,13 +93,7 @@ set fileformats=unix,dos,mac
 set number
 set list  " Print unprintables
 
-if has("gui_running")
-    set listchars=tab:\ ,trail:,extends:»,precedes:«  " mappings
-    set t_Co=256
-    set mouse=a
-else
-    set listchars=tab:>-,trail:.
-endif
+set listchars=tab:>-,trail:.
 
 set visualbell  " Bell, shut up!
 set showmatch  " Matching parens
@@ -128,13 +119,6 @@ set noshowmode  " Don't print mode changes in the command prompt
 
 set title  " Set window title
 set titleold=
-set guifont=Consolas:h11
-
-" Strip the GUI
-set guioptions-=m  " menu bar
-set guioptions-=T  " toolbar
-set guioptions-=r  " right-hand scroll bar
-set guioptions-=L  " left-hand scroll bar
 
 " Editor behaviours
 set hidden  " allow editing multiple buffers
@@ -184,11 +168,7 @@ let g:EasyMotion_startofline = 0  " don't change columns
 
 " Remaps
 nnoremap ; :
-nnoremap <S-Space> <PageUp>
-nnoremap <Space> <PageDown>
-
 vmap <BS> x
-vmap aa VGo1G
 
 " Shortcuts
 map <C-j> <C-W>j
@@ -201,4 +181,7 @@ set showcmd
 syntax enable
 set t_Co=256
 colorscheme Tomorrow-Night-Eighties
+
+" One last thing...
+set mouse=a
 

@@ -1,0 +1,73 @@
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.zsh/histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt appendhistory autocd extendedglob nomatch
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/nyaray/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+
+
+# completion
+# Do menu-driven completion.
+zstyle ':completion:*' menu select
+
+# Color completion for some things.
+# http://linuxshellaccount.blogspot.com/2008/12/color-completion-using-zsh-modules-on.html
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+# formatting and messages
+# http://www.masterzen.fr/2009/04/19/in-love-with-zsh-part-one/
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*:descriptions' format "$fg[yellow]%B--- %d%b"
+zstyle ':completion:*:messages' format '%d'
+zstyle ':completion:*:warnings' format "$fg[red]No matches for:$reset_color %d"
+zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
+zstyle ':completion:*' group-name ''
+
+# http://stackoverflow.com/questions/24226685/have-zsh-return-case-insensitive-auto-complete-matches-but-prefer-exact-matches
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
+# partial completion before ., _ or -, e.g. f.b -> foo.bar
+zstyle ':completion:*' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+# completing on the left side of the written text, e.g. bar -> foobar
+zstyle ':completion:*' '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
+
+
+# prompt
+autoload -Uz promptinit && promptinit
+# colors
+autoload -Uz colors && colors
+
+PROMPT="%{$fg_no_bold[yellow]%}%~ %{$reset_color%}%# "
+#RPROMPT="%{$fg[red]%}%n%{$reset_color%} @ %{$fg[blue]%}%m%{$reset_color%}"
+
+
+
+# aliases
+alias ls='ls --color'
+alias l=ls
+
+alias g='git'
+alias gc='g commit -v'
+alias gca='gc -a'
+alias gd='g diff'
+alias gdc='gd --cached'
+alias gpl='g pull'
+alias gps='g push'
+alias gs='g status'
+
+alias v='vim'
+
+
+
+# fancy plugin
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+

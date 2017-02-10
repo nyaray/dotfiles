@@ -44,6 +44,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'chriskempson/vim-tomorrow-theme'
 
+Plugin 'powerman/vim-plugin-AnsiEsc'
+
 " Editing, motions and file handling
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'tpope/vim-surround'
@@ -55,6 +57,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 
 " Elixir
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'slashmili/alchemist.vim'
 
 " Erlang
 Plugin 'vim-erlang/vim-erlang-runtime'

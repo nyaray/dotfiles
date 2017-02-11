@@ -43,6 +43,7 @@ endif
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'rakr/vim-one'
 
 Plugin 'powerman/vim-plugin-AnsiEsc'
 
@@ -91,7 +92,8 @@ let g:clojure_align_subforms = 1
 
 " vim-airline
 "let g:airline_theme='bubblegum'
-let g:airline_theme='light'
+"let g:airline_theme='light'
+let g:airline_theme='one'
 let g:airline#extensions#tabline#enabled=1
 
 set fileformats=unix,dos,mac
@@ -186,7 +188,9 @@ map <C-l> <C-W>l
 set showcmd
 syntax enable
 set t_Co=256
-colorscheme Tomorrow-Night-Eighties
+"colorscheme Tomorrow-Night-Eighties
+colorscheme one
+set background=dark
 
 " One last thing...
 set mouse=a

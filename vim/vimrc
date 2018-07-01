@@ -64,6 +64,9 @@ Plugin 'slashmili/alchemist.vim'
 " Erlang
 Plugin 'vim-erlang/vim-erlang-runtime'
 
+" Lisp-flavoured Erlang
+Plugin 'lfe-support/vim-lfe'
+
 " Clojure
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-fireplace'

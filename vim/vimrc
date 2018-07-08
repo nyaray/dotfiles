@@ -89,7 +89,9 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 " rainbow_parentheses.vim, Clojure hax
+autocmd Syntax lfe RainbowParenthesesLoadRound
 autocmd Syntax clojure EnableSyntaxExtension
+
 
 " vim-clojure-static
 let g:clojure_align_subforms = 1
@@ -205,8 +207,8 @@ syntax enable
 set t_Co=256
 "colorscheme Tomorrow-Night-Eighties
 colorscheme one
-"set background=dark
-set background=light
+set background=dark
+"set background=light
 
 " One last thing...
 set mouse=a

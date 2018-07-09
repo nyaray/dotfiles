@@ -9,7 +9,7 @@ set nocompatible
 filetype off
 
 " Follow the leader
-"let mapleader="\\"
+let mapleader="\\"
 
 " Autocommands
 autocmd BufNewFile,BufRead *.md set filetype=markdown
@@ -173,8 +173,13 @@ nnoremap g# g#zz
 nnoremap * /\<<C-R>=expand('<cword>')<CR>\><CR>zz
 nnoremap # ?\<<C-R>=expand('<cword>')<CR>\><CR>zz
 
-vnoremap // y/<C-R>"<CR>  " yank visual selection
-"nnoremap <Esc><Esc> :nohlsearch<CR>  " remove hilighting on double esc
+" yank visual selection
+vnoremap // y/<C-R>"<CR>
+" remove hilighting on double esc
+nnoremap <Esc><Esc> :nohlsearch<CR>
+
+" vim-fireplace
+autocmd Syntax clojure map <Leader>r :%Eval<CR>
 
 " vim-easymotion
 map <Leader>h <Plug>(easymotion-linebackward)

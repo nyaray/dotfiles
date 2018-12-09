@@ -1,0 +1,42 @@
+# Start Antigen, using the prezto framework
+source /usr/local/bin/antigen.zsh
+antigen use prezto
+
+antigen bundle sorin-ionescu/prezto modules/helper  # required for Git module
+antigen bundle sorin-ionescu/prezto modules/editor
+antigen bundle sorin-ionescu/prezto modules/git
+antigen bundle sorin-ionescu/prezto modules/syntax-highlighting # before prompt
+antigen bundle sorin-ionescu/prezto modules/history-substring-search
+antigen bundle sorin-ionescu/prezto modules/prompt
+antigen bundle sorin-ionescu/prezto modules/directory
+
+antigen apply
+
+prompt skwp
+
+# History
+HISTFILE=~/.zsh/histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt HIST_IGNORE_SPACE
+setopt appendhistory
+zstyle ':prezto:module:history-substring-search' case-sensitive 'yes'
+zstyle ':prezto:module:history-substring-search' color 'yes'
+
+# ls
+alias ls='ls -G'
+alias l=ls
+
+# Git
+alias g='git'
+alias gc='g commit -v'
+alias gca='gc -a'
+alias gco='g checkout'
+alias gcb='gco -b'
+alias gd='g diff'
+alias gdc='gd --cached'
+alias gs='g status'
+alias gpl='g pull'
+alias gps='g push'
+alias nv='nvim'
+
